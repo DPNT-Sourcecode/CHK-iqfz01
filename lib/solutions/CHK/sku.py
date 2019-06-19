@@ -5,3 +5,6 @@ class SKU:
         self.price = price
         self.discounted_price = discounted_price
         self.num_discount = num_discount
+
+    def get_price(self, quantity):
+        pass
