@@ -26,7 +26,9 @@ def get_total(order_string):
     total += num_e * 40
     
     # b
-    num_b = order_string.count('B') - free_b
+    num_b = order_string.count('B') 
+    if num_b > 0:
+        num_b -= free_b
     total += (
         (num_b // 2) * 45
     ) + (num_b % 2 * 30)

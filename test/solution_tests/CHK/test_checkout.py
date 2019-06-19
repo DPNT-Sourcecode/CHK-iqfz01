@@ -47,4 +47,4 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('AAAABBBBEE'), 335)
         self.assertEqual(checkout('AAAABBBBEECD'), 370)
         self.assertEqual(checkout('a'), -1)
-        
+        self.assertEqual(checkout('EE'), 80)
