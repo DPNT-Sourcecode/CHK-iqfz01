@@ -12,8 +12,14 @@ def checkout(skus):
     } 
         
     # There is no example input which made this all but guarantee a penalty.
-    total = '0'
+    total = 0
     for char in skus:
+        try:
+            # The spec does not mention quantity so assume it is 1.
+            total += price_table.get(char).get_price()
+        except TypeError:
+            return -1
+    return total
 
 
 
