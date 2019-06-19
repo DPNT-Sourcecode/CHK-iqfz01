@@ -11,7 +11,7 @@ class Basket:
     def incr_sku(self, sku_id):
         self.price_table[sku_id].quantity += 1
 
-def get_total(self, order_string):
+def get_total(order_string):
     total = 0
     # the previous implementation got a little complicated,
     # so for expediency we will just calculate very simply
@@ -22,11 +22,11 @@ def get_total(self, order_string):
     a_discount_one = num_a // 5 #quantity divisible by 5, for first discount
     a_discount_two = a_discount_one // 3 # quantity div. by 3 for second discount
     a_remain = num_a % 15  # remaining quantity for leftover pricing
-    total += (
+    total += (((
         a_discount_one  * 200
     ) + 
-        a_discount_two *  150
-    ) + (a_remain * 50)
+        a_discount_two *  130
+    ) + (a_remain * 50))
 
     # do e next so we can discount b more easily
     num_e = order_string.count('E')
@@ -37,7 +37,7 @@ def get_total(self, order_string):
     num_b = order_string.count('B') - free_b
     total += (
         (num_b // 2) * 45
-    ) + (num_b % 2 * 30))
+    ) + (num_b % 2 * 30)
 
     # c and d
     total += order_string.count('C') * 15
