@@ -17,7 +17,7 @@ def checkout(skus):
         try:
             # The spec does not mention quantity so assume it is 1.
             basket.incr_sku(char)
-        except TypeError, KeyError:
+        except (TypeError, KeyError):
             return -1
     return basket.get_total()
 

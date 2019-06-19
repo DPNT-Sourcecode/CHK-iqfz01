@@ -27,7 +27,8 @@ class TestCheckout(unittest.TestCase):
         
     def test_total(self, *args, **kwargs):
         self.assertEqual(checkout('A'), 50)
-        self.assertEqual(checkout(''), -1)
-        self.assertEqual(checkout('AB'))
-        
+        self.assertEqual(checkout(''), 0)
+        self.assertEqual(checkout('AAA'), 130)
+        self.assertEqual(checkout('AAABB'), 175)
+        self.assertEqual(checkout('AAABB'), 175)
         
