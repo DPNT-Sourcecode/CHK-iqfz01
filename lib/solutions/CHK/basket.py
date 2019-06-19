@@ -22,7 +22,7 @@ def get_total(order_string):
 
     # do e next so we can discount b more easily
     num_e = order_string.count('E')
-    free_b = num_e // 2
+    free_b = num_e // 2 # for every two E get a free B
     total += num_e * 40
     
     # b
@@ -37,13 +37,17 @@ def get_total(order_string):
     total += order_string.count('C') * 20
     total += order_string.count('D') * 15
     # f:
-    
     num_f = order_string.count('F')
-    total += ((num_f % 2) * 10) + ((num_f // 2) * 10)
+    if num_f > 0:
+       free_f = num_f // 2
+    else:
+        free_f = 0
+    total += (num_f - free_f) * 10
 
     # we don't need to return -1 anymore, as any string is valid
     # in this implementation. We could reject srings not containing
     # SKU IDs we possess, but the spec does not ask for this
     # so behaviour may be unexpected.
     return total
+
 
