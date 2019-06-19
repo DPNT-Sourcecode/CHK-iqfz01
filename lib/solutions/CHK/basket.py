@@ -24,7 +24,18 @@ class Basket:
         a_remain = num_a - (a_discount_one * 5) - a_discount_two * 3  # remaining quantity for leftover pricing
         total += (
             a_discount_one  * 200
-        ) + (
+        ) + 
             a_discount_two *  150
         ) + (a_remain * 50)
+
+        # do e next so we can discount b more easily
+        num_e = order_string.count('E')
+        free_b = num_e % 2
+
+        # we don't need to return -1 anymore, as any string is valid
+        # in this implementation. We could reject srings not containing
+        # SKU IDs we possess, but the spec does not ask for this
+        # so behaviour may be unexpected.
+        return total
+
 
