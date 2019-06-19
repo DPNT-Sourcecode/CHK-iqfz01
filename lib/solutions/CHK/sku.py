@@ -19,4 +19,5 @@ class SKU:
                 (quantity % self.num_discount) * self.price
             )
         else:
-            return quantity * self.price
+            return quantity * self.
+            
