@@ -4,15 +4,13 @@ class SKU:
         self.price = price
         self.discounted_price = discounted_price
         self.num_discount = num_discount
+        self.quantity = 0
 
-    def get_price(self, quantity=1):
-        try:
-            quantity = int(quantity)
-        except ValueError:
-            return -1
+    def get_price(self):
+
         if self.discounted_price and self.num_discount:
-            return ((quantity // self.num_discount) * self.discounted_price) + (
-                (quantity % self.num_discount) * self.price
+            return ((self.quantity // self.num_discount) * self.discounted_price) + (
+                (self.quantity % self.num_discount) * self.price
             )
         else:
-            return quantity * self.price
+            return self.quantity * self.price
