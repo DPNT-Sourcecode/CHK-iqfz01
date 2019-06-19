@@ -1,4 +1,9 @@
+import re
 def get_total(order_string):
+    allowed = 'ABCDE'
+    order_string_set = set(order_string)
+    if not order_string_set.issubset(allowed):
+        return -1
     total = 0
     # the previous implementation got a little complicated,
     # so for expediency we will just calculate very simply
