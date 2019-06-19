@@ -38,7 +38,7 @@ def get_total(order_string):
     total += order_string.count('D') * 15
 
     # f:
-    num_f = order_string.count('F') * 10
+    num_f = order_string.count('F')
     total += ((num_f % 2) * 10) + ((num_f // 2) * 10)
 
     # we don't need to return -1 anymore, as any string is valid
@@ -46,3 +46,4 @@ def get_total(order_string):
     # SKU IDs we possess, but the spec does not ask for this
     # so behaviour may be unexpected.
     return total
+
