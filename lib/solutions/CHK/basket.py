@@ -38,8 +38,8 @@ def get_total(order_string):
     total += order_string.count('D') * 15
     # f:
     num_f = order_string.count('F')
-    if num_f > 0:
-       free_f = num_f % 2
+    if num_f > 2:
+       free_f = num_f // 2
     else:
         free_f = 0
     total += (num_f - free_f) * 10
@@ -49,5 +49,6 @@ def get_total(order_string):
     # SKU IDs we possess, but the spec does not ask for this
     # so behaviour may be unexpected.
     return total
+
 
 
