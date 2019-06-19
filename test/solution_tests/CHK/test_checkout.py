@@ -1,4 +1,4 @@
-from solutions.CHK.sku import SKU
+from lib.solutions.CHK.sku import SKU
 import unittest
 
 class TestCheckout(unittest.TestCase):
