@@ -1,6 +1,6 @@
 import re
 def get_total(order_string):
-    allowed = 'ABCDE'
+    allowed = 'ABCDEF'
     order_string_set = set(order_string)
     if not order_string_set.issubset(allowed):
         return -1
@@ -39,7 +39,7 @@ def get_total(order_string):
 
     # f:
     num_f = order_string.count('F') * 10
-    total += ((num_f % 2) * 10) + ((num_f // 2) * 10))
+    total += ((num_f % 2) * 10) + ((num_f // 2) * 10)
 
     # we don't need to return -1 anymore, as any string is valid
     # in this implementation. We could reject srings not containing
