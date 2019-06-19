@@ -21,3 +21,19 @@ class SKU:
         else:
             return quantity * self.price
 
+    def apply_discounts(self, quantity=None):
+        if not quantity:
+            quantity = self.quantity
+        try:
+            quantity = int(quantity)
+        except ValueError:
+            return -1
+        remaining = quantity
+        total = 0
+        for discount in self.discounts:
+            total += (quantity // discount.required_quantity) * discount.price
+            remaining -= quantity % discount.required_quantity 
+        if remaining > 0:
+            total += (remaining * self.price)
+        return total
+
