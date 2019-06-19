@@ -20,7 +20,3 @@ def checkout(skus):
         except TypeError:
             return -1
     return total
-
-
-
-
