@@ -1,6 +1,8 @@
 import re
+
+
 def get_total(order_string):
-    allowed = 'ABCDEF'
+    allowed = "ABCDEF"
     order_string_set = set(order_string)
     if not order_string_set.issubset(allowed):
         return -1
@@ -10,36 +12,32 @@ def get_total(order_string):
     # until we know or can limit the precise format of our discounts
     # which is simpler from an operational standpoint and for the customer.
 
-    num_a = order_string.count('A')
-    a_discount_one = num_a // 5 #quantity divisible by 5, for first discount
-    a_discount_two = (num_a % 5) // 3 # quantity div. by 3 for second discount
+    num_a = order_string.count("A")
+    a_discount_one = num_a // 5  # quantity divisible by 5, for first discount
+    a_discount_two = (num_a % 5) // 3  # quantity div. by 3 for second discount
     a_remain = num_a - (a_discount_one * 5) - (a_discount_two * 3)
-    total += (((
-        a_discount_one  * 200
-    ) + 
-        a_discount_two *  130
-    ) + (a_remain * 50))
+    total += ((a_discount_one * 200) + a_discount_two * 130) + (a_remain * 50)
 
     # do e next so we can discount b more easily
-    num_e = order_string.count('E')
-    free_b = num_e // 2 # for every two E get a free B
+    num_e = order_string.count("E")
+    free_b = num_e // 2  # for every two E get a free B
     total += num_e * 40
-    
+
     # b
-    num_b = order_string.count('B') 
+    num_b = order_string.count("B")
     if num_b > 0:
         num_b -= free_b
-    total += (
-        (num_b // 2) * 45
-    ) + (num_b % 2 * 30)
+    total += ((num_b // 2) * 45) + (num_b % 2 * 30)
 
     # c and d
-    total += order_string.count('C') * 20
-    total += order_string.count('D') * 15
+    total += order_string.count("C") * 20
+    total += order_string.count("D") * 15
     # f:
-    num_f = order_string.count('F')
-    if num_f > 2:
-       free_f = num_f // 2
+    num_f = order_string.count("F")
+    if num_f > 0:
+        free_f = num_f // 2
+        if num_f % 2 == 0:
+            free_f -= 1
     else:
         free_f = 0
     total += (num_f - free_f) * 10
