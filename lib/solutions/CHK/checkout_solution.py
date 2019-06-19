@@ -7,4 +7,3 @@ def checkout(skus):
     from .basket import get_total
     
     return get_total(skus)
-

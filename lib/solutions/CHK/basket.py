@@ -19,9 +19,9 @@ def get_total(order_string):
     # which is simpler from an operational standpoint and for the customer.
 
     num_a = order_string.count('A')
-    a_discount_one = num_a % 5 #quantity divisible by 5, for first discount
-    a_discount_two = (num_a // 5) % 3 # quantity div. by 3 for second discount
-    a_remain = num_a % 15  # remaining quantity for leftover pricing
+    a_discount_one = num_a // 5 #quantity divisible by 5, for first discount
+    a_discount_two = (num_a // 5) // 3 # quantity div. by 3 for second discount
+    a_remain = num_a // 15  # remaining quantity for leftover pricing
     total += (((
         a_discount_one  * 200
     ) + 
@@ -49,9 +49,3 @@ def get_total(order_string):
     # SKU IDs we possess, but the spec does not ask for this
     # so behaviour may be unexpected.
     return total
-
-
-
-
-
-
