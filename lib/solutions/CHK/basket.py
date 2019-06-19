@@ -46,4 +46,3 @@ def get_total(order_string):
     # SKU IDs we possess, but the spec does not ask for this
     # so behaviour may be unexpected.
     return total
-
