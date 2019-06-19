@@ -23,7 +23,7 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(d.get_price(3), 45)
         self.assertEqual(a.get_price('kitties'), -1)
         
-        
+    
         
     def test_total(self, *args, **kwargs):
         self.assertEqual(checkout('A'), 50)
