@@ -1,28 +1,9 @@
 import re
-class SKU:
-
-    def __init__(self, sku_id, price):
-        pass
-
-class Discount:
-    pass
-    
-class MultiBuyDiscount:
-    def __init__(self, sku, number, discounted_price)
-        pass
-    def apply_discount(self)
-        pass
-
-class BuyFreeDiscount:
-    def __init__(self, number, free_sku)
-        pass
-    def apply_discount(self)
-        pass
 
 class Basket:
 
     def __init__(self):
-        
+        pass        
 
 def get_total(order_string):
     allowed = "ABCDEF"
