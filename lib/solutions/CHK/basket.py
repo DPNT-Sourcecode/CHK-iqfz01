@@ -1,16 +1,3 @@
-class Basket:
-    def __init__(self, sku_list=[]):
-        self.price_table = {}
-
-        for sku in sku_list:
-            self.add_sku(sku)
-
-    def add_sku(self, sku):
-        self.price_table[sku.sku_id] = sku
-
-    def incr_sku(self, sku_id):
-        self.price_table[sku_id].quantity += 1
-
 def get_total(order_string):
     total = 0
     # the previous implementation got a little complicated,
@@ -30,15 +17,15 @@ def get_total(order_string):
 
     # do e next so we can discount b more easily
     num_e = order_string.count('E')
-    free_b = num_e % 2
+    free_b = num_e // 2
     total += num_e * 40
-
+    
     # b
     num_b = order_string.count('B') - free_b
     total += (
         (num_b // 2) * 45
     ) + (num_b % 2 * 30)
-    print(total)
+
     # c and d
     total += order_string.count('C') * 15
     total += order_string.count('D') * 20
