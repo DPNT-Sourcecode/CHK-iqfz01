@@ -20,8 +20,8 @@ def get_total(order_string):
 
     num_a = order_string.count('A')
     a_discount_one = num_a // 5 #quantity divisible by 5, for first discount
-    a_discount_two = (num_a // 5) // 3 # quantity div. by 3 for second discount
-    a_remain = num_a // 15  # remaining quantity for leftover pricing
+    a_discount_two = (num_a % 5) // 3 # quantity div. by 3 for second discount
+    a_remain = num_a - (a_discount_one * 5) - (a_discount_two * 3)
     total += (((
         a_discount_one  * 200
     ) + 
@@ -38,7 +38,7 @@ def get_total(order_string):
     total += (
         (num_b // 2) * 45
     ) + (num_b % 2 * 30)
-
+    print(total)
     # c and d
     total += order_string.count('C') * 15
     total += order_string.count('D') * 20
