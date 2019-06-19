@@ -1,8 +1,9 @@
 class SKU:
-    def __init__(self, sku_id, price, discounts=[]):
+    def __init__(self, sku_id, price, discounted_price, num_discount):
         self.sku_id = sku_id
         self.price = price
-        self.discounts = discounts.sort(key=lambda discount: discount.quantity,reverse=True)
+        self.discounted_price = discounted_price
+        self.num_discount = num_discount
         self.quantity = 0
 
     def get_price(self, quantity=None):
@@ -16,8 +17,5 @@ class SKU:
             return ((quantity // self.num_discount) * self.discounted_price) + (
                 (quantity % self.num_discount) * self.price
             )
-        if self.discounts:
-            return self.apply_discounts(quantity)
         else:
             return quantity * self.price
-
