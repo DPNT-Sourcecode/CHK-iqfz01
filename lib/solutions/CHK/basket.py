@@ -39,7 +39,7 @@ def get_total(order_string):
     # f:
     num_f = order_string.count('F')
     if num_f > 0:
-       free_f = num_f // 2
+       free_f = num_f % 2
     else:
         free_f = 0
     total += (num_f - free_f) * 10

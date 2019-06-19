@@ -18,6 +18,8 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout('F'), 10)
         self.assertEqual(checkout('FF'), 20)
         self.assertEqual(checkout('FFF'), 20)
+        self.assertEqual(checkout('FFF'), 30)
+        self.assertEqual(checkout('FFFF'), 40) 
         self.assertEqual(checkout('AAAABBBBEECDFF'), 390)
         self.assertEqual(checkout('AAAABBBBEECDFFF'), 390)
         
