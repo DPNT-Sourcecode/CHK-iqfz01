@@ -12,28 +12,12 @@ class SKU:
             quantity = int(quantity)
         except ValueError:
             return -1
-        # if self.discounted_price and self.num_discount:
-        #     return ((quantity // self.num_discount) * self.discounted_price) + (
-        #         (quantity % self.num_discount) * self.price
-        #     )
+        if self.discounted_price and self.num_discount:
+            return ((quantity // self.num_discount) * self.discounted_price) + (
+                (quantity % self.num_discount) * self.price
+            )
         if self.discounts:
             return self.apply_discounts(quantity)
         else:
             return quantity * self.price
-
-    def apply_discounts(self, quantity=None):
-        if not quantity:
-            quantity = self.quantity
-        try:
-            quantity = int(quantity)
-        except ValueError:
-            return -1
-        remaining = quantity
-        total = 0
-        for discount in self.discounts:
-            total += (quantity // discount.required_quantity) * discount.price
-            remaining -= quantity % discount.required_quantity 
-        if remaining > 0:
-            total += (remaining * self.price)
-        return total
 
