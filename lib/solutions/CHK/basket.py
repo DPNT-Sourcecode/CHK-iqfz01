@@ -50,5 +50,3 @@ def get_total(order_string):
     # so behaviour may be unexpected.
     return total
 
-
-
