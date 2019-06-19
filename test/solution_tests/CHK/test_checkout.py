@@ -30,5 +30,9 @@ class TestCheckout(unittest.TestCase):
         self.assertEqual(checkout(''), 0)
         self.assertEqual(checkout('AAA'), 130)
         self.assertEqual(checkout('AAABB'), 175)
-        self.assertEqual(checkout('AAABB'), 175)
+        self.assertEqual(checkout('AAAA'), 180)
+        self.assertEqual(checkout('AAAABB'), 225)
+        self.assertEqual(checkout('AAAABBB'), 255)
+        self.assertEqual(checkout('AAAABBBCD'), 290)
+        self.assertEqual(checkout('CCC'), 60)
         

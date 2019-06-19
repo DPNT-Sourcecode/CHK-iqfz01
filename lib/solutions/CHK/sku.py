@@ -19,4 +19,3 @@ class SKU:
             )
         else:
             return quantity * self.price
-

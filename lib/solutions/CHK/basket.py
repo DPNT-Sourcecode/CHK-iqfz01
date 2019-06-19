@@ -17,4 +17,3 @@ class Basket:
             total += sku.get_price()
         return total
 
-

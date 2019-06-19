@@ -20,4 +20,3 @@ def checkout(skus):
         except (TypeError, KeyError):
             return -1
     return basket.get_total()
-
